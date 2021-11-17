@@ -33,8 +33,8 @@ User >> call: aUser [
 
 { #category : #'ffi-calls' }
 User >> call: aUser duration: aInt [
-	phone call: aUser .
-	aUser phone calculateBatteryAfterCall: aInt.
+	aUser phone call: aInt .
+	phone calculateBatteryAfterCall: aInt.
 	self inCall: true .
 ]
 

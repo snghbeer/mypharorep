@@ -43,8 +43,8 @@ Phone >> calculateBatteryAfterCall: duration [
 ]
 
 { #category : #adding }
-Phone >> call: aUser [
-	aUser inCall: true.
+Phone >> call: minutes [
+	self calculateBatteryAfterCall: minutes.
 ]
 
 { #category : #adding }
