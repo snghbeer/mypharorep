@@ -18,15 +18,8 @@ MyFalse >> initialize [
 ]
 
 { #category : #'as yet unclassified' }
-MyFalse >> myIfFalse: aInt [
-	(aInt = 2) ifTrue: [ ^2 ].
-	(aInt <= 1) ifTrue: [ ^1 ]
-]
-
-{ #category : #'as yet unclassified' }
-MyFalse >> myIfTrue: aInt [
-	(aInt = 2) ifTrue: [ ^2 ].
-	(aInt <= 1) ifTrue: [ ^1 ]
+MyFalse >> myIfTrue: aInt myIfFalse: bInt [
+	^aInt value
 ]
 
 { #category : #accessing }
