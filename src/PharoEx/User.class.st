@@ -17,6 +17,14 @@ User class >> initializeUser: username [
 	yourself
 ]
 
+{ #category : #initialization }
+User class >> initializeUser: username phone: aString [
+	^self new
+	username: username;
+	phone: (Phone initPhone: aString);
+	yourself
+]
+
 { #category : #'ffi-calls' }
 User >> call: aUser [
 	phone call: aUser . 

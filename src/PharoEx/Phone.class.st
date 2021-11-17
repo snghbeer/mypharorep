@@ -15,14 +15,14 @@ Phone class >> initPhone: aModel [
 	^self new
 	modelname: aModel;
 	battery: 5;
-	contacts: Set new;
-	
+	contacts: Dictionary new;
+	callDuration: 0;
 	yourself
 ]
 
 { #category : #adding }
 Phone >> addContact: aUser [
-	contacts add: aUser
+	contacts at:(aUser username) put:aUser
 ]
 
 { #category : #accessing }
@@ -37,8 +37,8 @@ Phone >> battery: aInt [
 
 { #category : #accessing }
 Phone >> calculateBatteryAfterCall: duration [
-	(self model = 'iPhone') ifTrue: [ self battery: (0.1 * duration) ].
-	(self model = 'LG') ifTrue: [ self battery: (0.25 * duration) ].
+	(self model = 'iPhone') ifTrue: [ self battery: battery - (0.01 * duration) ].
+	(self model = 'LG') ifTrue: [ self battery: battery - 0.25 ].
 	
 ]
 
@@ -61,6 +61,11 @@ Phone >> callDuration [
 { #category : #accessing }
 Phone >> callDuration: aInt [
 	callDuration := aInt
+]
+
+{ #category : #'as yet unclassified' }
+Phone >> charge [
+	self battery: 5
 ]
 
 { #category : #accessing }
